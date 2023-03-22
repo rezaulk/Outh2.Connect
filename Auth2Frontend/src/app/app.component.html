@@ -1,0 +1,36 @@
+<div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
+  <main class="px-3">
+    <div *ngIf="idToken">
+      <h2>{{ user.userName }}</h2>
+      <p class="lead">
+        <img [src]="user.picture" /><br />
+        <span>{{ user.email }}</span>
+      </p>
+      <hr />
+      <p class="lead">
+        <a routerLink="/" class="btn btn-lg btn-outline-secondary text-white">Sign Out</a>
+      </p>
+    </div>
+    <div *ngIf="!idToken">
+      <p class="lead">
+        <a href="#" class="btn btn-lg btn-outline-secondary text-white" (click)="signInWithGoogle()"
+          >Sign in with Google</a
+        >
+      </p>
+
+      <p class="lead">
+        <a href="#" class="btn btn-lg btn-outline-secondary text-white" (click)="signInWithHDBIAM()"
+          >Sign in with HDB IAM</a
+        >
+      </p>
+
+      <p class="lead">
+        <a href="#" class="btn btn-lg btn-outline-secondary text-white" (click)="signInWithAAD()"
+          >Sign in with AAD</a
+        >
+      </p>
+    </div>
+  </main>
+</div>
+
+<router-outlet></router-outlet>
